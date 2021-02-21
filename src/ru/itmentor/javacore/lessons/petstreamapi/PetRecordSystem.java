@@ -10,7 +10,7 @@ public class PetRecordSystem implements PetCatalogue {
 
     @Override
     public void addPet(Pet pet) throws PetExistsException {
-        if (pets.contains(pet)) {
+        if (!pets.contains(pet)) {
             pets.add(pet);
         } else {
             throw new PetExistsException(pet);
@@ -26,28 +26,22 @@ public class PetRecordSystem implements PetCatalogue {
 
     @Override
     public void changePetOwner(int petId, Person newOwner) {
-        for (int i = 0; i < petsMap.size(); i++) {
-            if (petsMap.get(i).getId() == petId) {
-                petsMap.get(i).setPerson(newOwner);
-            }
+        if (petsMap.containsKey(petId)) {
+            petsMap.get(petId).setPerson(newOwner);
         }
     }
 
     @Override
     public void changePetName(int petId, String newName) {
-        for (int i = 0; i < petsMap.size(); i++) {
-            if (petsMap.get(i).getId() == petId) {
-                petsMap.get(i).setNickname(newName);
-            }
+        if (petsMap.containsKey(petId)) {
+            petsMap.get(petId).setNickname(newName);
         }
     }
 
     @Override
     public void changePetWeight(int petId, double newWeight) {
-        for (int i = 0; i < petsMap.size(); i++) {
-            if (petsMap.get(i).getId() == petId) {
-                petsMap.get(i).setWeight(newWeight);
-            }
+        if (petsMap.containsKey(petId)) {
+            petsMap.get(petId).setWeight(newWeight);
         }
     }
 
