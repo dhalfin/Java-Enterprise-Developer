@@ -1,4 +1,4 @@
-package ru.itmentor.javacore.lessons.collections.model;
+package ru.itmentor.javacore.lessons.collections;
 
 
 public class PetExistsException extends Exception {
@@ -13,3 +13,4 @@ public class PetExistsException extends Exception {
         return "Pet " + pet + " already exists";
     }
 }
+

@@ -1,4 +1,4 @@
-package ru.itmentor.javacore.lessons.collections.model;
+package ru.itmentor.javacore.lessons.collections;
 
 public class Person {
 
@@ -25,3 +25,4 @@ public class Person {
         return name;
     }
 }
+

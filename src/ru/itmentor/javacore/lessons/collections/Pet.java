@@ -1,6 +1,6 @@
-package ru.itmentor.javacore.lessons.collections.model;
+package ru.itmentor.javacore.lessons.collections;
 
-public class Pet implements Comparable<Pet>{
+public class Pet implements Comparable<Pet> {
 
     private int id;
     private String nickname;
@@ -47,34 +47,17 @@ public class Pet implements Comparable<Pet>{
     }
 
     @Override
-    public int compareTo(Pet o) {
-        return 0;
+    public int compareTo(Pet pet) {
+        return nickname.compareTo(pet.getNickname());
     }
 
     @Override
     public String toString() {
-        return "Pet{ " +
+        return "Pet {" +
                 "id=" + id +
                 ", nickname='" + nickname + '\'' +
                 ", person=" + person +
                 ", weight=" + weight +
                 '}';
     }
-
-
-
-
-
-    //   public static List<Pet> filterByNickname(List<Pet> )
-
-//    public Pet getPetByName(String name, List<Pet> listPet) {
-//        Iterator<Pet> iterator = listPet.iterator();
-//        while (iterator.hasNext()) {
-//            Pet pet = iterator.next();
-//            if (pet.getNickname().equals(name)) {
-//                return pet;
-//            }
-//        }
-//        return null;
-//    }
 }
