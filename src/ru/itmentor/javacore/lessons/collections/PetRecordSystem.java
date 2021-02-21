@@ -1,17 +1,19 @@
 package ru.itmentor.javacore.lessons.collections;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class PetRecordSystem implements PetCatalogue {
 
     List<Pet> pets = new ArrayList<>();
+    Map<Integer, Pet> petsMap = new HashMap<>();
 
     @Override
-    public void addPet(Pet pet) {
-        pets.add(pet);
+    public void addPet(Pet pet) throws PetExistsException {
+        if (pets.contains(pet)) {
+            pets.add(pet);
+        } else {
+            throw new PetExistsException(pet);
+        }
     }
 
     @Override
@@ -27,27 +29,27 @@ public class PetRecordSystem implements PetCatalogue {
 
     @Override
     public void changePetOwner(int petId, Person newOwner) {
-        for (int i = 0; i < pets.size(); i++) {
-            if (pets.get(i).getId() == petId) {
-                pets.get(i).setPerson(newOwner);
+        for (int i = 0; i < petsMap.size(); i++) {
+            if (petsMap.get(i).getId() == petId) {
+                petsMap.get(i).setPerson(newOwner);
             }
         }
     }
 
     @Override
     public void changePetName(int petId, String newName) {
-        for (int i = 0; i < pets.size(); i++) {
-            if (pets.get(i).getId() == petId) {
-                pets.get(i).setNickname(newName);
+        for (int i = 0; i < petsMap.size(); i++) {
+            if (petsMap.get(i).getId() == petId) {
+                petsMap.get(i).setNickname(newName);
             }
         }
     }
 
     @Override
     public void changePetWeight(int petId, double newWeight) {
-        for (int i = 0; i < pets.size(); i++) {
-            if (pets.get(i).getId() == petId) {
-                pets.get(i).setWeight(newWeight);
+        for (int i = 0; i < petsMap.size(); i++) {
+            if (petsMap.get(i).getId() == petId) {
+                petsMap.get(i).setWeight(newWeight);
             }
         }
     }

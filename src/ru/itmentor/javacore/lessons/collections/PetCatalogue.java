@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface PetCatalogue {
 
-    void addPet(Pet pet);
+    void addPet(Pet pet) throws PetExistsException;
 
     List<Pet> getAllPetsByName(String petName);
 

@@ -2,7 +2,7 @@ package ru.itmentor.javacore.lessons.collections;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws PetExistsException {
 
         Person p1 = new Person(34, Sex.MAN, "Динар");
         Person p2 = new Person(14, Sex.WOMAN, "Юлия");
