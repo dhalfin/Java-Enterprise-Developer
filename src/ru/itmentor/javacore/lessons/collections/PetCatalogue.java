@@ -1,6 +1,7 @@
 package ru.itmentor.javacore.lessons.collections;
 
 import java.util.List;
+import java.util.Map;
 
 public interface PetCatalogue {
 
@@ -10,7 +11,7 @@ public interface PetCatalogue {
 
     void changePetOwner(int petId, Person newOwner);
 
-    void changePetName(int petId, String newName);
+    void changePetName(int petId, String newName, String oldName);
 
     void changePetWeight(int petId, double newWeight);
 
