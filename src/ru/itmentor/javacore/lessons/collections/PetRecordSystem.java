@@ -5,9 +5,10 @@ import java.util.*;
 public class PetRecordSystem implements PetCatalogue {
 
     //List<Pet> pets = new ArrayList<>();
-    int ID = 0;
+   // int ID = 0;
     Map<Integer, Pet> petsMap = new HashMap<>();
     Map<String, List<Pet>> nameMap = new HashMap<>();
+   // NavigableSet<Pet> petSet = new TreeSet<>();
     Map<Integer, Pet> petsTreeMap = new TreeMap<>();
 
     //O(1)
@@ -31,27 +32,42 @@ public class PetRecordSystem implements PetCatalogue {
 
     @Override
     public void addPet(Pet pet) throws PetExistsException {
-
-        if (petsTreeMap.containsValue(pet)) {
-            throw new PetExistsException(pet);
+        try {
+            if (petsTreeMap.containsValue(pet)) {
+                throw new PetExistsException(pet);
+            }
+//            petSet.pollLast();
+//            changePetOwner(pet.getId(), pet.getPerson());
+//            petSet.add(pet);
+            petsTreeMap.put(pet.getId(), pet);
+           // ID++;
+        } catch (PetExistsException ex){
+            System.out.println("Such a pet already exists!");
         }
-        petsTreeMap.put(ID, pet);
     }
 
     //O(1)
     @Override
-    public List<Pet> getAllPetsByName(String petName) {
-        List<Pet> result = new ArrayList<>();
+    public void getAllPetsByName(String petName) {
+        List<Pet> petObjects = new ArrayList<Pet>(petsTreeMap.values());
 //        for (int i = 0; i < pets.size(); i++) {
 //            if (pets.get(i).getNickname().equals(petName)) {
 //                result.add(pets.get(i));
 //            }
 //        }
 //        return result;
-        if (nameMap.containsKey(petName)) {
-            result = nameMap.get(petName);
+
+        for (Pet petObj : petObjects) {
+            if (petObj.getNickname().equals(petName)) {
+                System.out.println("ID : " + petObj.getId());
+                System.out.println("Nickname : " + petObj.getNickname());
+                System.out.println("Owner : " + petObj.getPerson().getName());
+            }
         }
-        return result;
+//        if (nameMap.containsKey(petName)) {
+//            result = nameMap.get(petName);
+//        }
+//        return result;
     }
 
     //O(1)
@@ -94,9 +110,11 @@ public class PetRecordSystem implements PetCatalogue {
     //0(n)
     @Override
     public void printAllPetsSorted() {
+
         for (int i = 0; i < petsTreeMap.size(); i++) {
             System.out.println(petsTreeMap.get(i));
         }
+
     }
 
     //O(n log n)

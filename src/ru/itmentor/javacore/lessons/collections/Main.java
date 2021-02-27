@@ -18,7 +18,8 @@ public class Main {
         prs.addPet(new Pet(6, "Жесси", p5, 2.96));
         prs.addPet(new Pet(7, "Ферби", p4, 8.56));
 
-        System.out.println(prs.getAllPetsByName("Тиффи"));
+       // System.out.println(prs.getAllPetsByName("Васька"));
+        prs.getAllPetsByName("Тиффи");
         prs.printAllPetsSorted();
     }
 }

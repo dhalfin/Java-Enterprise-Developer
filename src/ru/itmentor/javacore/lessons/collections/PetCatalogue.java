@@ -7,7 +7,8 @@ public interface PetCatalogue {
 
     void addPet(Pet pet) throws PetExistsException;
 
-    List<Pet> getAllPetsByName(String petName);
+    void getAllPetsByName(String petName);
+    //List<Pet> getAllPetsByName(String petName);
 
     void changePetOwner(int petId, Person newOwner);
 
