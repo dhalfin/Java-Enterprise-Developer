@@ -9,7 +9,7 @@ public class Main {
         Person p3 = new Person(39, Sex.MAN, "Артем");
         Person p4 = new Person(50, Sex.MAN, "Дмитрий");
         Person p5 = new Person(15, Sex.WOMAN, "Евгения");
-        PetRecordSystem prs = new PetRecordSystem();
+        PetRecordSystemOptimizedNameAndSort prs = new PetRecordSystemOptimizedNameAndSort();
         prs.addPet(new Pet(1, "Васька", p1, 4.56));
         prs.addPet(new Pet(2, "Пушок", p2, 2.56));
         prs.addPet(new Pet(3, "Шарик", p3, 9.56));
@@ -18,8 +18,10 @@ public class Main {
         prs.addPet(new Pet(6, "Жесси", p5, 2.96));
         prs.addPet(new Pet(7, "Ферби", p4, 8.56));
 
-       // System.out.println(prs.getAllPetsByName("Васька"));
-        prs.getAllPetsByName("Тиффи");
+
+        prs.changePetOwner(3, p1);
+        System.out.println(prs.getAllPetsByName("Васька"));
+        System.out.println(prs.getAllPetsByName("Тиффи"));
         prs.printAllPetsSorted();
     }
 }

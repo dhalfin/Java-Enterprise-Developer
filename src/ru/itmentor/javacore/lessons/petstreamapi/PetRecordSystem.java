@@ -47,7 +47,7 @@ public class PetRecordSystem implements PetCatalogue {
 
     @Override
     public void printAllPetsSorted() {
-        Collections.sort(pets, (o1, o2) -> {
+        pets.sort((o1, o2) -> {
             int comp = o1.getPerson().getName().compareTo(o2.getPerson().getName());
             int comp1 = o1.getNickname().compareTo(o2.getNickname());
             if (comp != 0) {

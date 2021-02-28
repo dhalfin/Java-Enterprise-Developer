@@ -1,8 +1,5 @@
 package ru.itmentor.javacore.lessons.collections;
 
-import java.util.Comparator;
-import java.util.Objects;
-
 public class Pet implements Comparable<Pet> {
 
     private int id;
@@ -50,59 +47,16 @@ public class Pet implements Comparable<Pet> {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Pet pet = (Pet) o;
-        return Double.compare(pet.weight, weight) == 0 &&
-                nickname.equals(pet.nickname) &&
-                person.equals(pet.person);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(nickname, person, weight);
-    }
-
-    @Override
     public int compareTo(Pet pet) {
-        int value = 0;
-        if (this.person.compareTo(pet.person) > 0) {
-            value = 1;
-        } else if (this.person.compareTo(pet.person) < 0) {
-            value = -1;
-        } else {
-            if (this.nickname.compareTo(pet.nickname) > 0) {
-                value = 1;
-            } else if (this.nickname.compareTo(pet.nickname) < 0) {
-                value = -1;
-            } else {
-                value = Double.compare(this.weight, pet.weight);
-            }
+        int result = this.person.getName().compareTo(pet.getPerson().getName());
+        if (result == 0) {
+            result = this.nickname.compareTo(pet.getNickname());
         }
-        return value;
+        if (result == 0) {
+            result = -Double.compare(this.weight, pet.weight);
+        }
+        return result;
     }
-
-//    public static class personNameComparator implements Comparator<Pet> {
-//        @Override
-//        public int compare(Pet o1, Pet o2) {
-//            return o1.person.getName().compareTo(o2.person.getName());
-//        }
-//    }
-//
-//    public static class petNameComparator implements Comparator<Pet> {
-//        @Override
-//        public int compare(Pet o1, Pet o2) {
-//            return o1.nickname.compareTo(o2.nickname);
-//        }
-//    }
-//
-//    public static class weightPetComparator implements Comparator<Pet> {
-//        @Override
-//        public int compare(Pet o1, Pet o2) {
-//            return (int) (o1.getWeight() - o2.getWeight());
-//        }
-//    }
 
     @Override
     public String toString() {

@@ -1,6 +1,6 @@
 package ru.itmentor.javacore.lessons.collections;
 
-public class Person implements Comparable<Person> {
+public class Person {
 
     private final int age;
     private final Sex sex;
@@ -22,23 +22,6 @@ public class Person implements Comparable<Person> {
 
     public String getName() {
         return name;
-    }
-
-    @Override
-    public int compareTo(Person person) {
-        int value = 0;
-        if (name.compareTo(person.name) > 0) {
-            value = 1;
-        } else if (name.compareTo(person.name) < 0) {
-            value = -1;
-        } else {
-            if (age > person.age) {
-                value = 1;
-            } else if (age < person.age) {
-                value = -1;
-            }
-        }
-        return value;
     }
 }
 
