@@ -17,11 +17,11 @@ public class PetRecordSystemOptimizedSort implements PetCatalogue {
         petSet.add(pet);//O(log (n))
     }
 
-    //O(1) + O(1) + O(log (n)) = O(log (n))
+    //O(n) + O(1) + O(1) = O(n)
     @Override
     public List<Pet> getAllPetsByName(String petName) {
         List<Pet> result = new ArrayList<>();
-        for (Pet pet : petsMap.values()) {//O(log (n))
+        for (Pet pet : petsMap.values()) {//O(n)
             if (pet.getNickname().equals(petName)) {//O(1)
                 result.add(pet);//O(1)
             }

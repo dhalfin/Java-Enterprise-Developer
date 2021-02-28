@@ -28,12 +28,12 @@ public class PetRecordSystemOptimizedNameAndSort implements PetCatalogue {
                 .add(pet);//O(1)
     }
 
-    //O(1) + 0(1) = 0(1)
+    //O(1) + 0(n) = 0(n)
     @Override
     public List<Pet> getAllPetsByName(String petName) {
         List<Pet> result = new ArrayList<>();
         if (nameMap.containsKey(petName)) {//O(1)
-            result.addAll(nameMap.get(petName));//O(1)
+            result.addAll(nameMap.get(petName));//O(n)
         }
         return result;
     }
@@ -49,7 +49,7 @@ public class PetRecordSystemOptimizedNameAndSort implements PetCatalogue {
         }
     }
 
-    //O(1) + 0(1) + O(1) + 0(1) + 0(1) + O(1) + 0(1) + O(log (n)) + O(1) + 0(1) + O(log (n)) = O(log (n))
+    //O(1) + 0(1) + O(1) + 0(1) + 0(1) + O(1) + 0(1) + O(n) + O(1) + 0(1) + O(log (n)) = O(log (n))
     @Override
     public void changePetName(int petId, String newName) {
         if (petsMap.containsKey(petId)) {//O(1)
@@ -60,7 +60,7 @@ public class PetRecordSystemOptimizedNameAndSort implements PetCatalogue {
                     .isEmpty()) {//O(1)
                 nameMap.remove(pet.getNickname());//O(1)
             }
-            petSet.remove(pet);//O(log (n))
+            petSet.remove(pet);//O(n)
             pet.setNickname(newName);//O(1)
             addPetToNameMap(pet);//O(1)
             petSet.add(pet);//O(log (n))
@@ -78,10 +78,10 @@ public class PetRecordSystemOptimizedNameAndSort implements PetCatalogue {
         }
     }
 
-    //O(log (n)) + O(1) = O(log (n))
+    //O(n) + O(1) = O(n)
     @Override
     public void printAllPetsSorted() {
-        for (Pet pet : petSet) {//O(log (n))
+        for (Pet pet : petSet) {//O(n)
             System.out.println(pet);//O(1)
         }
     }

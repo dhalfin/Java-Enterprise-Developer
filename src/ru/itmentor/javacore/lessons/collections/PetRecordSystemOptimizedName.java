@@ -31,12 +31,12 @@ public class PetRecordSystemOptimizedName implements PetCatalogue {
                 .add(pet);//O(1)
     }
 
-    //O(1) + O(1) = O(1)
+    //O(1) + O(n) = O(n)
     @Override
     public List<Pet> getAllPetsByName(String petName) {
         List<Pet> result = new ArrayList<>();
         if (nameMap.containsKey(petName)) {//O(1)
-            result.addAll(nameMap.get(petName));//O(1)
+            result.addAll(nameMap.get(petName));//O(n)
         }
         return result;
     }
@@ -49,13 +49,13 @@ public class PetRecordSystemOptimizedName implements PetCatalogue {
         }
     }
 
-    //O(1) + O(1) + O(1) + O(1) + O(1) + O(1) + O(1) + O(1) + O(1) = O(1)
+    //O(1) + O(1) + O(1) + O(n) + O(1) + O(1) + O(1) + O(1) + O(1) = O(n)
     @Override
     public void changePetName(int petId, String newName) {
         if (petsMap.containsKey(petId)) {//O(1)
             Pet pet = petsMap.get(petId);//O(1)
             nameMap.get(pet.getNickname())//O(1)
-                    .remove(pet);//O(1)
+                    .remove(pet);//O(n)
             if (nameMap.get(pet.getNickname())//O(1)
                     .isEmpty()) {//O(1)
                 nameMap.remove(pet.getNickname());//O(1)
