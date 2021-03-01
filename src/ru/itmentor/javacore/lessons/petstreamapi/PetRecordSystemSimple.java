@@ -46,7 +46,9 @@ public class PetRecordSystemSimple implements PetCatalogue {
     @Override
     public void printAllPetsSorted() {
         List<Pet> pets = new ArrayList<>(petsMap.values());
-        Collections.sort(pets);
-        pets.forEach(System.out::println);
+        List<Pet> sortedPets = pets.stream()
+                .sorted()
+                .collect(Collectors.toList());
+        sortedPets.forEach(System.out::println);
     }
 }

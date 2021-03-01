@@ -48,7 +48,14 @@ public class Pet implements Comparable<Pet> {
 
     @Override
     public int compareTo(Pet pet) {
-        return nickname.compareTo(pet.getNickname());
+        int result = this.person.getName().compareTo(pet.getPerson().getName());
+        if (result == 0) {
+            result = this.nickname.compareTo(pet.getNickname());
+        }
+        if (result == 0) {
+            result = -Double.compare(this.weight, pet.weight);
+        }
+        return result;
     }
 
     @Override
