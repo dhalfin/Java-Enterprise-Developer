@@ -18,6 +18,7 @@ public class Main {
         prs.addPet(new Pet(6, "Жесси", p5, 2.96));
         prs.addPet(new Pet(7, "Ферби", p4, 8.56));
 
+        prs.changePetOwner(3, p1);
         System.out.println(prs.getAllPetsByName("Тиффи"));
         prs.printAllPetsSorted();
     }

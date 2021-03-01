@@ -49,18 +49,18 @@ public class PetRecordSystemOptimizedNameAndSort implements PetCatalogue {
         }
     }
 
-    //O(1) + 0(1) + O(1) + 0(1) + 0(1) + O(1) + 0(1) + O(n) + O(1) + 0(1) + O(log (n)) = O(log (n))
+    //O(1) + 0(1) + O(1) + O(n) + 0(1) + O(1) + 0(1) + O(log (n)) + O(1) + 0(1) + O(log (n)) = O(log (n))
     @Override
     public void changePetName(int petId, String newName) {
         if (petsMap.containsKey(petId)) {//O(1)
             Pet pet = petsMap.get(petId);//O(1)
             nameMap.get(pet.getNickname())//O(1)
-                    .remove(pet);//O(1)
+                    .remove(pet);//O(n)
             if (nameMap.get(pet.getNickname())//O(1)
                     .isEmpty()) {//O(1)
                 nameMap.remove(pet.getNickname());//O(1)
             }
-            petSet.remove(pet);//O(n)
+            petSet.remove(pet);//O(log (n))
             pet.setNickname(newName);//O(1)
             addPetToNameMap(pet);//O(1)
             petSet.add(pet);//O(log (n))
