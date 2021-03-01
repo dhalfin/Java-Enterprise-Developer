@@ -65,8 +65,8 @@ public class PetRecordSystemOptimizedSort implements PetCatalogue {
     //O(n) + O(1) = O(n)
     @Override
     public void printAllPetsSorted() {
-        for (Pet pet : petSet) {//O(n)
-            System.out.println(pet);//O(1)
+        for (Pet pet : petSet) {
+            System.out.println(pet);
         }
     }
 }
