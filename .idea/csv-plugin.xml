@@ -31,6 +31,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\src\ru\itmentor\javacore\lessons\petstreamapi\PetRecordSystem.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\src\ru\itmentor\javacore\lessons\petstreamapi\PetRecordSystemSimple.java">
           <value>
             <Attribute>

@@ -1,7 +1,6 @@
 package ru.itmentor.javacore.lessons.petstreamapi;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class PetRecordSystemOptimizedName implements PetCatalogue {
 
@@ -65,10 +64,9 @@ public class PetRecordSystemOptimizedName implements PetCatalogue {
 
     @Override
     public void printAllPetsSorted() {
-        List<Pet> pets = new ArrayList<>(petsMap.values());
-        List<Pet> sortedPets = pets.stream()
+        petsMap.values()
+                .stream()
                 .sorted()
-                .collect(Collectors.toList());
-        sortedPets.forEach(System.out::println);
+                .forEach(System.out::println);
     }
 }

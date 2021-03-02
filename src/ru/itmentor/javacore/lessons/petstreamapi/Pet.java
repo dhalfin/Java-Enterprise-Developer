@@ -1,5 +1,7 @@
 package ru.itmentor.javacore.lessons.petstreamapi;
 
+import java.util.Comparator;
+
 public class Pet implements Comparable<Pet> {
 
     private int id;
