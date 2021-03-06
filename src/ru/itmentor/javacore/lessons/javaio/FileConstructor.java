@@ -4,9 +4,17 @@ import java.io.*;
 
 public class FileConstructor {
 
+    private static final String TARGET = "src/ru/itmentor/javacore/lessons/javaio/resources/hw2/";
     private static final int KILOBYTE = 1024;
+    private static final String[] wordsArray = {"только", "любовь", "спасет", "этот",
+            "мир", "он", "её", "волнует", "волнуетcя", "море", "раз"};
 
-    public void getFiles(String path, int n, int size, String[] words) {
+    public static void main(String[] args) {
+
+        getFiles(TARGET, 4, 1330, wordsArray);
+    }
+
+    public static void getFiles(String path, int n, int size, String[] words) {
         TextConstructor tc = new TextConstructor(words);
         if (size > 0) {
             for (int i = 0; i < n; i++) {

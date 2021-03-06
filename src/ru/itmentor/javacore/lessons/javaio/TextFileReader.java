@@ -1,58 +1,60 @@
 package ru.itmentor.javacore.lessons.javaio;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class TextFileReader {
 
-    private static final Set<String> wordsSet = new TreeSet<>();
+    private static final String SOURCE = "src/ru/itmentor/javacore/lessons/javaio/resources/source.txt";
+    private static final String TARGET = "src/ru/itmentor/javacore/lessons/javaio/resources/target.txt";
 
-    public static void main(String[] args) {
-        String source = "src/ru/itmentor/javacore/lessons/javaio/resources/source.txt";
-        String target = "src/ru/itmentor/javacore/lessons/javaio/resources/target.txt";
+    private static final Set<Character> CHARS_TO_FILTER;
+    private static final Set<String> words;
+    private static final StringBuilder sb;
 
-        fromFileToList(source);
-        fromListToFile(target);
+    static {
+        CHARS_TO_FILTER = new HashSet<>(Arrays.asList('.', ',', '?', '!', ':', ';', '*', '"', '-', '“', '”'));
+        words = new TreeSet<>();
+        sb = new StringBuilder();
     }
 
-    public static void fromFileToList(String fileResource) {
-        try (FileInputStream fileInputStream = new FileInputStream(fileResource)) {
-            int i = -1;
-            boolean repeat = false;
-            StringBuilder stringBuilder = new StringBuilder();
-            while ((i = fileInputStream.read()) != -1) {
-                stringBuilder.append((char) i);
-            }
-            String[] resultWords = stringBuilder.toString().toLowerCase().split(" ");
+    public static void main(String[] args) {
+        getFillingFromSource();
+        convertStringToCollection();
+        writeCollectionToTargetFile();
+    }
 
-            for (String resultWord : resultWords) {
-                if (!wordsSet.add(resultWord)) {
-                    repeat = true;
+    private static void getFillingFromSource() {
+        try (FileInputStream fInStr = new FileInputStream(SOURCE)) {
+            int i;
+            while ((i = fInStr.read()) != -1) {
+                char ch = (char) i;
+                if (!CHARS_TO_FILTER.contains(ch)) {
+                    sb.append(ch);
                 }
             }
-            if (repeat) {
-                System.out.println("There were duplicate words in the original file!");
-            }
-        } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-    public static void fromListToFile(String fileTarget) {
-        try (FileWriter fileWriter = new FileWriter(fileTarget, true)) {
-            for (String s : wordsSet) {
-                fileWriter.write(s + "\n");
+    private static void convertStringToCollection() {
+        String filling = sb.toString().toLowerCase();
+        words.addAll(Arrays.asList(filling.replace("\n", " ").split(" ")));
+        words.remove("");
+    }
+
+    private static void writeCollectionToTargetFile() {
+        try (FileOutputStream fOutStr = new FileOutputStream(TARGET)) {
+            for (String str : words) {
+                fOutStr.write(str.getBytes());
+                fOutStr.write('\n');
+                fOutStr.flush();
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }
