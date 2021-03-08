@@ -1,2 +1,20 @@
 «Газпром» поставил первую в Атлантическом бассейне углеродно-нейтральную партию сжиженного природного газа. «Зеленый» СПГ был доставлен на терминал Dragon на территории Великобритании, покупателем стала Shell. Об этом говорится в сообщении «Газпрома» в понедельник, 8 марта.
 
+She sells seashells on the seashore.
+The shells she sells are seashells, I’m sure.
+So if she sells seashells on the seashore,
+Then, I’m sure she sells seashore shells.
+
+ try (PrintWriter writer = new PrintWriter("src/ru/itmentor/javacore/lessons/javaio/resources/target.txt")) {
+            Files.readAllLines(Paths.get("src/ru/itmentor/javacore/lessons/javaio/resources/source.txt"))
+                    .stream()
+                    .map(line -> line.replaceAll("\\p{P}", ""))
+                    .map(String::toLowerCase)
+                    .map(s -> s.split("\\s+"))
+                    .flatMap(Arrays::stream)
+                    .distinct()
+                    .sorted()
+                    .forEach(writer::println);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
