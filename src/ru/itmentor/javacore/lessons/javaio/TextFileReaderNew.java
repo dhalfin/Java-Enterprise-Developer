@@ -15,12 +15,12 @@ public class TextFileReaderNew {
 
         List<String> lines = Files.readAllLines(Paths.get("src/ru/itmentor/javacore/lessons/javaio/resources/source.txt"));
         List<String> words = lines.stream()
-                .sorted()
-                .distinct()
                 .map(line -> line.replaceAll("\\p{P}", ""))
                 .map(String::toLowerCase)
                 .map(s -> s.split("\\s+"))
                 .flatMap(Arrays::stream)
+                .sorted()
+                .distinct()
                 .collect(Collectors.toList());
 
         try (FileWriter fileWriter = new FileWriter("src/ru/itmentor/javacore/lessons/javaio/resources/target.txt", true)) {
