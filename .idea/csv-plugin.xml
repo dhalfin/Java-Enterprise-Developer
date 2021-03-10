@@ -101,6 +101,27 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\src\ru\itmentor\javacore\lessons\threads\MyThread.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\ru\itmentor\javacore\lessons\threads\TestFactorial.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\ru\itmentor\javacore\lessons\threads\ThreadJoinExample.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
