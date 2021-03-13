@@ -52,6 +52,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\src\ru\itmentor\javacore\lessons\javaio\StringConstructor.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\src\ru\itmentor\javacore\lessons\javaio\TextConstructor.java">
           <value>
             <Attribute>

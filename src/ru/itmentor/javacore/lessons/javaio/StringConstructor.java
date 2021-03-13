@@ -16,7 +16,17 @@ public class StringConstructor {
     }
 
     String createNewString() {
-        StringBuilder strBuilder = new StringBuilder();
+        String originalStr = " ";
+        int newLength = originalStr.length() + (int) Math.ceil(originalStr.length() / 100.0);
+        StringBuilder strBuilder = new StringBuilder(newLength);
+        int chunkStart = 0;
+
+        while (chunkStart < originalStr.length()) {
+            int endOfThisChunk = originalStr.length();
+            strBuilder.append(originalStr, chunkStart, endOfThisChunk);
+            strBuilder.append('\n');
+            chunkStart = endOfThisChunk;
+        }
         for (int i = 0; i < lengthOfString; i++) {
             int signProbability = 1 + random.nextInt(100);
             String s = getRandomWord();

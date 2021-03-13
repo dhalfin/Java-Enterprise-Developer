@@ -6,12 +6,13 @@ public class FileConstructor {
 
     private static final String TARGET = "src/ru/itmentor/javacore/lessons/javaio/resources/hw2/";
     private static final int KILOBYTE = 1024;
-    private static final String[] wordsArray = {"только", "любовь", "спасет", "этот",
-            "мир", "он", "её", "волнует", "волнуетcя", "море", "раз"};
+    private static final String[] wordsArray = {"really ", "love", "will save", "this",
+            "world", "he", "she", "loves", "combination", "sea", "one", "goes" , "forever", "vacation", "have",
+            "programmer", "on", "the", "a", "rest", "is", "matter", "takes", "place", "coding"};
 
     public static void main(String[] args) {
 
-        getFiles(TARGET, 4, 1330, wordsArray);
+        getFiles(TARGET, 2, 1650, wordsArray);
     }
 
     public static void getFiles(String path, int n, int size, String[] words) {
