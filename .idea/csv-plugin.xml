@@ -108,6 +108,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\src\ru\itmentor\javacore\lessons\threads\FactorialThreadApp.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\src\ru\itmentor\javacore\lessons\threads\MyThread.java">
           <value>
             <Attribute>
