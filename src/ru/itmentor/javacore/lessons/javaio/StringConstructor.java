@@ -16,33 +16,34 @@ public class StringConstructor {
     }
 
     String createNewString() {
-        String originalStr = " ";
-        int newLength = originalStr.length() + (int) Math.ceil(originalStr.length() / 100.0);
-        StringBuilder strBuilder = new StringBuilder(newLength);
-        int chunkStart = 0;
-
-        while (chunkStart < originalStr.length()) {
-            int endOfThisChunk = originalStr.length();
-            strBuilder.append(originalStr, chunkStart, endOfThisChunk);
-            strBuilder.append('\n');
-            chunkStart = endOfThisChunk;
-        }
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < lengthOfString; i++) {
             int signProbability = 1 + random.nextInt(100);
-            String s = getRandomWord();
+            String str = getRandomWord();
             if (i == 0) {
-                strBuilder.append(s.substring(0, 1).toUpperCase()).append(s.substring(1));
+                sb.append(str.substring(0, 1).toUpperCase()).append(str.substring(1));
             } else {
-                strBuilder.append(getRandomWord());
+                sb.append(getRandomWord());
             }
             if (signProbability > 50 && i < lengthOfString - 1) {
-                strBuilder.append(", ");
+                sb.append(", ");
             } else if (i < lengthOfString - 1) {
-                strBuilder.append(' ');
+                sb.append(' ');
             }
         }
-        strBuilder.append(getRandomMark());
-        return strBuilder.toString();
+        sb.append(getRandomMark());
+        return sb.toString();
+//        String str = strBuilder.toString();
+//        String[] arr = str.split(" ");
+//        StringBuilder strArr = new StringBuilder();
+//        for (String s : arr) {
+//            strArr.append(s);
+//            if (strArr.length() > 1000) {
+//                strArr.append("\n");
+//            }
+//            strArr.append(s);
+//        }
+//        return strArr.toString();
     }
 
     private char getRandomMark() {
