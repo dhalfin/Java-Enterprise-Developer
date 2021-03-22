@@ -3,7 +3,6 @@ package ru.itmentor.javacore.lessons.javaio;
 import java.io.*;
 
 public class FileConstructor {
-
     private static final String TARGET = "src/ru/itmentor/javacore/lessons/javaio/resources/hw2/";
     private static final int KILOBYTE = 1024;
     private static final String[] wordsArray = {"really ", "love", "will save", "this",
@@ -12,7 +11,7 @@ public class FileConstructor {
 
     public static void main(String[] args) {
 
-        getFiles(TARGET, 2, 1650, wordsArray);
+        getFiles(TARGET, 1, 500, wordsArray);
     }
 
     public static void getFiles(String path, int n, int size, String[] words) {

@@ -3,7 +3,6 @@ package ru.itmentor.javacore.lessons.javaio;
 import java.util.Random;
 
 public class TextConstructor {
-
     private static final int MAX_SENTENCE_NUMBER = 20;
     private final StringConstructor stringConstructor;
     private final Random random;
