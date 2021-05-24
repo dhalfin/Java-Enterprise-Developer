@@ -5,7 +5,7 @@ import java.io.*;
 public class FileConstructor {
     private static final String TARGET = "src/ru/itmentor/javacore/lessons/javaio/resources/hw2/";
     private static final int KILOBYTE = 1024;
-    private static final String[] wordsArray = {"really ", "love", "will save", "this",
+    private static final String[] wordsArray = {"really", "love", "will", "optimistically", "this",
             "world", "he", "she", "loves", "combination", "sea", "one", "goes" , "forever", "vacation", "have",
             "programmer", "on", "the", "a", "rest", "is", "matter", "takes", "place", "coding"};
 
